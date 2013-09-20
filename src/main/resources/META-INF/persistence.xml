@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="DefaultPersistenceUnit" transaction-type="JTA">
+
+        <description>JPA configuration for tman</description>
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <jta-data-source>java:jboss/datasources/TmanDS</jta-data-source>
+
+
+
+
+
+
+        <class>com.frol.tman.model.Tenant</class>
+        <class>com.frol.tman.model.Rent</class>
+        <class>com.frol.tman.model.Payment</class>
+        <class>com.frol.tman.model.Apartment</class>
+
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <!--<validation-mode>NONE</validation-mode>-->
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.max_fetch_depth" value="3"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

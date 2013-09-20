@@ -26,6 +26,7 @@ public class Tenant {
         this.id = id;
     }
 
+    @ElementCollection
     private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
     public List<PhoneNumber> getPhoneNumbers() {

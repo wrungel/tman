@@ -7,6 +7,11 @@ import java.util.Date;
 @Entity
 public class Payment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
     @NotNull
     @Column(nullable = false)
     private Integer amount;
