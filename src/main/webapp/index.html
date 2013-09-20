@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <title>jQuery calling RESTful Services</title>
+    <meta xmlns="http://www.w3.org/1999/xhtml" content="text/html; charset=utf-8" />
+    <!-- This will include the whole javascript file including ajax handling  -->
+    <script src="./js"></script>
+    <script src="./_js/jquery-1.10.2.min.js"></script>
+    <script>
+
+        function getTenants()
+        {
+
+        //Call the REST APIs with directly method names
+        var tenants = TenantService.listAll();
+
+        //Use the REST API response
+        $.each(tenants,
+        function (i, theItem) {
+        var combo = document.getElementById("cboAllTenants");
+        var option = document.createElement("option");
+        option.text = theItem.firstName;
+        option.value = theItem.id;
+        try {
+        //alert('success add combo');
+        combo.add(option, null); // Other browsers
+        }
+        catch (error) {
+        alert('error found');
+        combo.add(option); // really old browser
+        }
+        }
+        );
+        }
+    </script>
+
+</head>
+
+<body>
+
+
+
+<div id = "stylized" class = "myform">
+    <form
+            id = "form"
+            action = "#"
+            name = "form">
+        <h1>How to retrieve RESTful Data with jQuery</h1>
+        <p>This is a basic example</p>
+        <label>
+            Tenants
+            <span class = "small">RESTfully Retrieved</span>
+        </label>
+        <select id = "cboAllTenants" name = "cboAllTenants"></select>
+        <button id = "load" type = "button" onclick="getTenants()">LOAD</button>
+        <div class = "spacer"></div>
+    </form>
+</div>
+
+
+</body>
+
+</html>

@@ -15,7 +15,7 @@ import java.util.List;
 
 @Path("/tenant")
 @Stateless
-public class TenantResource {
+public class TenantService {
 
     @PersistenceContext(unitName = "DefaultPersistenceUnit")
     EntityManager em;

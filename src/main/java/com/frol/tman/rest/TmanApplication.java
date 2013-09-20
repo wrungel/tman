@@ -12,7 +12,7 @@ public class TmanApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet<Class<?>> classes = new HashSet<Class<?>>();
-        classes.add(TenantResource.class);
+        classes.add(TenantService.class);
         return classes;
     }
 }
