@@ -1,9 +1,8 @@
 package com.frol.tman.ejb;
 
-import com.frol.tman.model.PhoneNumber;
-import com.frol.tman.model.PhoneType;
-import com.frol.tman.model.Tenant;
-
+import com.frol.tman.entity.PhoneNumber;
+import com.frol.tman.entity.PhoneType;
+import com.frol.tman.entity.Tenant;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;

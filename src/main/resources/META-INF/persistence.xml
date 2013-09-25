@@ -16,10 +16,10 @@
 
 
 
-        <class>com.frol.tman.model.Tenant</class>
-        <class>com.frol.tman.model.Rent</class>
-        <class>com.frol.tman.model.Payment</class>
-        <class>com.frol.tman.model.Apartment</class>
+        <class>com.frol.tman.entity.Tenant</class>
+        <class>com.frol.tman.entity.Rent</class>
+        <class>com.frol.tman.entity.Payment</class>
+        <class>com.frol.tman.entity.Apartment</class>
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>

@@ -1,64 +1,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 
-<head>
-    <title>jQuery calling RESTful Services</title>
-    <meta xmlns="http://www.w3.org/1999/xhtml" content="text/html; charset=utf-8" />
-    <!-- This will include the whole javascript file including ajax handling  -->
-    <script src="./js"></script>
-    <script src="./_js/jquery-1.10.2.min.js"></script>
-    <script>
+    <head>
+        <title>jQuery calling RESTful Services</title>
+        <meta xmlns="http://www.w3.org/1999/xhtml" content="text/html; charset=utf-8" />
+        <!-- This will include the whole javascript file including ajax handling  -->
+        <script src="./js"></script>
+        <script src="./_js/jquery-1.10.2.min.js"></script>
+        <script>
 
-        function getTenants()
-        {
+            function getTenants()
+            {
+                var tenants = TenantService.listAll();
+                var r = new Array(), j = -1;
+                 for (var key=0, size=tenants.length; key<size; key++){
+                     r[++j] ='<tr><td>';
+                     //r[++j] = tenants[key][0];
+                     r[++j] = tenants[key].firstName;
+                     r[++j] = '</td><td><a href="">';
+                     r[++j] = tenants[key].middleName;
+                     r[++j] = '</a></td><td class="whatever2">';
+                     r[++j] = tenants[key].secondName;
+                     r[++j] = '</td></tr>';
+                 }
+                 $('#dataTable').html(r.join(''));
+            }
+        </script>
 
-        //Call the REST APIs with directly method names
-        var tenants = TenantService.listAll();
+    </head>
 
-        //Use the REST API response
-        $.each(tenants,
-        function (i, theItem) {
-        var combo = document.getElementById("cboAllTenants");
-        var option = document.createElement("option");
-        option.text = theItem.firstName;
-        option.value = theItem.id;
-        try {
-        //alert('success add combo');
-        combo.add(option, null); // Other browsers
-        }
-        catch (error) {
-        alert('error found');
-        combo.add(option); // really old browser
-        }
-        }
-        );
-        }
-    </script>
+    <body onload="getTenants()">
 
-</head>
+        <div>
+            <table>
+                <thead>
+                    <tr><th>First Name</th><th>Middle Name</th><th>Second Name</th></tr>
+                </thead>
+                <tbody id="dataTable">
 
-<body>
+                </tbody>
+            </table>
 
+        </div>
 
+        
 
-<div id = "stylized" class = "myform">
-    <form
-            id = "form"
-            action = "#"
-            name = "form">
-        <h1>How to retrieve RESTful Data with jQuery</h1>
-        <p>This is a basic example</p>
-        <label>
-            Tenants
-            <span class = "small">RESTfully Retrieved</span>
-        </label>
-        <select id = "cboAllTenants" name = "cboAllTenants"></select>
-        <button id = "load" type = "button" onclick="getTenants()">LOAD</button>
-        <div class = "spacer"></div>
-    </form>
-</div>
-
-
-</body>
+    </body>
 
 </html>

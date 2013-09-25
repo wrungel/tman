@@ -1,6 +1,6 @@
-package com.frol.tman.model;
+package com.frol.tman.entity;
 
-public class TenantDTO {
+public class TenantPreviewDTO {
     private String firstName;
     private String middleName;
     private String secondName;

@@ -1,4 +1,4 @@
-package com.frol.tman.model;
+package com.frol.tman.entity;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Digits;
