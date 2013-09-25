@@ -4,7 +4,16 @@ public class TenantPreviewDTO {
     private String firstName;
     private String middleName;
     private String secondName;
+    private String id;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getFirstName() {
         return firstName;
     }

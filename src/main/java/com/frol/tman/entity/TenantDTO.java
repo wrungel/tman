@@ -6,6 +6,7 @@
 
 package com.frol.tman.entity;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,7 +17,8 @@ public class TenantDTO {
     private String firstName;
     private String middleName;
     private String secondName;
-    private String birthDay;
+    private Date birthDay;
+    private String id;
     
     private List<PhoneNumber> phoneNumbers;
 
@@ -24,8 +26,12 @@ public class TenantDTO {
         return phoneNumbers;
     }
     
-    public String birthDay() {
+    public Date getBirthDay() {
         return birthDay;
+    }
+    
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
     
     public String getFirstName() {
@@ -50,5 +56,13 @@ public class TenantDTO {
 
     public void setSecondName(String secondName) {
         this.secondName = secondName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

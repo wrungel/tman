@@ -9,27 +9,20 @@
         <script src="./_js/jquery-1.10.2.min.js"></script>
         <script>
 
-            function getTenants()
+            function getTenant()
             {
-                var tenants = TenantService.listAll();
-                var r = new Array(), j = -1;
-                 for (var key=0, size=tenants.length; key<size; key++){
-                     r[++j] ='<tr><td>';
-                     //r[++j] = tenants[key][0];
-                     r[++j] = tenants[key].firstName;
-                     r[++j] = '</td><td><a href="tman/tenants/tenant/' + tenants[key].id + '">';
-                     r[++j] = tenants[key].middleName;
-                     r[++j] = '</a></td><td class="whatever2">';
-                     r[++j] = tenants[key].secondName;
-                     r[++j] = '</td></tr>';
-                 }
-                 $('#dataTable').html(r.join(''));
+                var tenant = TenantService.get();
+                $('#id').html(tenant.id);
+                $('#firstName').html(tenant.firstName);
+                $('#middleName').html(tenant.middleName);
+                $('#lastName').html(tenant.lastName);
+                $('#birthDay').html(tenant.birthDay);
             }
         </script>
 
     </head>
 
-    <body onload="getTenants()">
+    <body onload="getTenant()">
 
         <div>
             <table>
@@ -37,7 +30,11 @@
                     <tr><th>First Name</th><th>Middle Name</th><th>Second Name</th></tr>
                 </thead>
                 <tbody id="dataTable">
-
+                    <tr><td>ID:</td><td id="id"></td></tr>
+                    <tr><td>First name:</td><td id="firstName"></td></tr>
+                    <tr><td>Middle name:</td><td id="middleName"></td></tr>
+                    <tr><td>Last name:</td><td id="lastName"></td></tr>
+                    <tr><td>Date of birth:</td><td id="birthDay"></td></tr>
                 </tbody>
             </table>
 
