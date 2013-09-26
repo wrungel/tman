@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width"/>
+        <style media="screen" type="text/css">
+            input {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                border:1px solid #ccc;
+                font-size:20px;
+                width:300px;
+                min-height:30px;
+                display:block;
+                margin-bottom:15px;
+                margin-top:5px;
+                outline: none;
+
+                -webkit-border-radius:5px;
+                -moz-border-radius:5px;
+                -o-border-radius:5px;
+                -ms-border-radius:5px;
+                border-radius:5px;
+            }
+
+            :invalid { 
+                border-color: #e88;
+                -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+                -moz-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+                -o-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+                -ms-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+                box-shadow:0 0 5px rgba(255, 0, 0, .8);
+            }
+
+            :required {
+                border-color: #88a;
+                -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+                -moz-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+                -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+                -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+                box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+            }
+            input[type=submit] {
+                #background:none;
+                padding:10px;
+            }
+            form {
+                width:300px;
+                margin: 20px auto;
+            }
+
+        </style>   
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.min.css" media="screen" />
+
+        <script src="_js/jquery-1.10.2.min.js"></script>
+        <!--<script src="_js/jquery-ui-1.10.3.custom.min.js"></script>-->
+        <script>
+            function saveTenant()
+            {
+                    MyResource.postForm({
+                    telephoneNumbers:[
+                    {"telephoneNumbers[0].countryCode":31},
+                    {"telephoneNumbers[0].number":12345678},
+                    {"telephoneNumbers[1].countryCode":91},
+                    {"telephoneNumbers[1].number":9717738723}
+                    ],
+                    address:[
+                    {"address[INVOICE].street":"Main Street"},
+                    {"address[INVOICE].houseNumber":2},
+                    {"address[SHIPPING].street":"Square One"},
+                    {"address[SHIPPING].houseNumber":13}
+            ]
+    });
+            }
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <form method="post" onclick="saveTenant()">
+
+            <label>Name (ID):</label>
+            <input type="text" id="tenantId" name="tenantId"
+                   pattern="[A-Za-z]+" title="ID" required="true" autofocus="true"/>
+
+            <label>First name:</label>
+            <input type="text" id="firstName" name="firstName"
+                   pattern="[A-Za-z\s]+" title="First name"/>
+
+            <label>Middle name:</label>
+            <input type="text" id="middleName" name="middleName"
+                   pattern="[A-Za-z\s]+" title="Middle name"/>
+
+            <label>Last name:</label>
+            <input type="text" id="lastName" name="lastName"
+                   pattern="[A-Za-z\s]+" title="Last name"/>
+
+            <label>Email address:</label>
+            <input type="email" id="email_addr" name="email_addr" placeholder="name@example.com"/>
+
+            <label>Date of birth:</label>
+            <input type="date" name="birthDate" value="2008-10-15" min="1900-01-01" max="2020-01-01"/>
+
+            <label>Phone number:</label>
+            <input type="tel" id="phone" name="phone" title="Phone number"/>
+
+
+            <input type="submit" value="Save" /> 
+        </form>
+
+       
+    </body>
+</html>
