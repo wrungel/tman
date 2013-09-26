@@ -1,16 +1,10 @@
 package com.frol.tman.rest;
 
-import com.frol.tman.entity.QTenant;
-import com.frol.tman.entity.TenantDTO;
-import com.frol.tman.entity.TenantPreviewDTO;
+import com.frol.tman.dto.TenantDTO;
+import com.frol.tman.dto.TenantPreviewDTO;
 import com.frol.tman.repository.TenantRepository;
 
-import com.mysema.query.jpa.impl.JPAQuery;
-import com.mysema.query.types.Projections;
-
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;

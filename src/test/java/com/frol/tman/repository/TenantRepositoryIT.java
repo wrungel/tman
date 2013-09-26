@@ -7,11 +7,11 @@
 package com.frol.tman.repository;
 
 import com.frol.tman.entity.Tenant;
-import com.frol.tman.entity.TenantDTO;
+import com.frol.tman.dto.TenantDTO;
 import org.hamcrest.Matchers;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.dialect.H2Dialect;
-import org.hibernate.ejb.HibernatePersistence;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -21,7 +21,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.sql.DataSource;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,37 +38,9 @@ public class TenantRepositoryIT {
     static EntityManagerFactory emf;
     private EntityManager em;
 
-
-    public static EntityManagerFactory createDefaultEntityManagerFactory(String packagesToScan)
-    {
-        LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setPersistenceProviderClass(HibernatePersistence.class);
-        factoryBean.setJpaPropertyMap(createDefaultJpaProperties());
-        factoryBean.setPersistenceUnitName("default");
-        factoryBean.setPackagesToScan(packagesToScan);
-        factoryBean.setDataSource(createInMemoryDataSource());
-        factoryBean.afterPropertiesSet();
-        return factoryBean.getNativeEntityManagerFactory();
-    }
-
-    protected static Map<String, String> createDefaultJpaProperties() {
-        Map<String, String> jpaProperties = new HashMap<>();
-        jpaProperties.put(AvailableSettings.HBM2DDL_AUTO, "update");
-        jpaProperties.put(AvailableSettings.DIALECT, H2Dialect.class.getName());
-        //jpaProperties.put("hibernate.search.autoregister_listeners", "false");
-        //jpaProperties.put("javax.persistence.validation.mode", "none");
-        return jpaProperties;
-    }
-
-
-    private static DataSource createInMemoryDataSource() {
-        return new SingleConnectionDataSource("jdbc:h2:mem:;", true);
-    }
-
-    @BeforeClass
+     @BeforeClass
     public static void beforeClass() {
-        emf = createDefaultEntityManagerFactory(
-                Tenant.class.getPackage().getName());
+        emf = PersistenceHelper.createDefaultEntityManagerFactory();
     }
 
     @Before

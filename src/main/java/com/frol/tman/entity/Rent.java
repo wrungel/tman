@@ -19,13 +19,13 @@ public class Rent {
     private Tenant mainTenant;
 
     @Temporal(TemporalType.DATE)
-    Date contractBegin;
+    private Date contractBegin;
 
     @Temporal(TemporalType.DATE)
-    Date contractEnd;
+    private Date contractEnd;
 
     @Temporal(TemporalType.DATE)
-    Date realEnd;
+    private Date realEnd;
 
     private Integer monthRate;
 
@@ -80,5 +80,37 @@ public class Rent {
 
     public void setSecurityDeposit(Integer securityDeposit) {
         this.securityDeposit = securityDeposit;
+    }
+
+    public Date getContractBegin() {
+        return contractBegin;
+    }
+
+    public void setContractBegin(Date contractBegin) {
+        this.contractBegin = contractBegin;
+    }
+
+    public Date getContractEnd() {
+        return contractEnd;
+    }
+
+    public void setContractEnd(Date contractEnd) {
+        this.contractEnd = contractEnd;
+    }
+
+    public Date getRealEnd() {
+        return realEnd;
+    }
+
+    public void setRealEnd(Date realEnd) {
+        this.realEnd = realEnd;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -1,4 +1,4 @@
-package com.frol.tman.entity;
+package com.frol.tman.dto;
 
 public class TenantPreviewDTO {
     private String firstName;

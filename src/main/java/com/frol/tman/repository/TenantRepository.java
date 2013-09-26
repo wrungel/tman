@@ -6,8 +6,8 @@
 package com.frol.tman.repository;
 
 import com.frol.tman.entity.QTenant;
-import com.frol.tman.entity.TenantDTO;
-import com.frol.tman.entity.TenantPreviewDTO;
+import com.frol.tman.dto.TenantDTO;
+import com.frol.tman.dto.TenantPreviewDTO;
 import com.mysema.query.jpa.impl.JPAQuery;
 import com.mysema.query.types.Projections;
 import java.util.List;

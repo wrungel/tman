@@ -16,10 +16,6 @@ public class Payment {
     @Column(nullable = false)
     private Integer amount;
 
-    @NotNull
-    @Column(nullable = false)
-    private String currency;
-
     @Temporal(TemporalType.DATE)
     private Date date;
 
@@ -53,5 +49,21 @@ public class Payment {
 
     public void setRent(Rent rent) {
         this.rent = rent;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
